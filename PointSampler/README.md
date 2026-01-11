@@ -1,6 +1,12 @@
 # PointSampler
 The point sampler leverages [Birdsons Algorithm](https://www.cs.ubc.ca/~rbridson/docs/bridson-siggraph07-poissondisk.pdf) for efficient calculations of points following a [Poisson Disk Distribution](https://www.numberanalytics.com/blog/poisson-disk-sampling-essentials).
 
+- [PoissonSettings](#poissonsettings)
+- [PoisonDisc](#poissondisc)
+- [PointSampler](#pointsampler)
+- [Examples](#examples)
+
+
 ## PoissonSettings
 These are the variables that will determine how the [PoissonDisc](#poissondisc) class will generate the points. You can use the [PointSampler](#pointsampler) to view the changes live in the editor.
 
@@ -71,3 +77,12 @@ The point sampler is an [Area2D]https://docs.godotengine.org/en/stable/classes/c
 1. add the  **Sampler Node** to the scene tree
 2. give the **Sampler Node** a [PoissonSettings](#poissonsettings).
 3. add **SamplerShape Node** as a child of the **SamplerNode**
+
+## Examples
+### Larger Circle
+![PointSampler Circle](/Docs/Images/point_sampler_circle.png)
+
+### Smaller Rectangle
+![PointSampler Rectangle](/Docs/Images/point_sampler_rect.png)
+
+
