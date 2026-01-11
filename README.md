@@ -29,5 +29,8 @@ An overview of each of the tool.
 
 ### PointSampler
 Uses the Poisson Disk Distribution to sample points in a given area. Allows for live editing in the editor.
+
+<img src="/Docs/Images/point_sampler_circle.png" alt="drawing" width="200"/>
+
 ### SceneManager
 an autoload and associated loading screen to handle loading content.
