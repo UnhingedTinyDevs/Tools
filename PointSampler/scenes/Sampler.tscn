@@ -5,13 +5,14 @@
 [ext_resource type="Script" uid="uid://c54atwf1ccdpu" path="res://PointSampler/scripts/poisson_settings.gd" id="3_puij2"]
 [ext_resource type="Script" uid="uid://cmgbkaqtcb50v" path="res://PointSampler/scripts/sampler_collision.gd" id="4_12fae"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_12fae"]
-radius = 5000.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_12fae"]
+size = Vector2(150, 150)
 
 [sub_resource type="Resource" id="Resource_ppyeb"]
 script = ExtResource("3_puij2")
-min_distance = 500.0
-shape = SubResource("CircleShape2D_12fae")
+min_distance = 30.0
+max_dist_mult = 10.0
+shape = SubResource("RectangleShape2D_12fae")
 metadata/_custom_type_script = "uid://c54atwf1ccdpu"
 
 [node name="Sampler" type="Area2D"]
@@ -23,5 +24,5 @@ debug = true
 
 [node name="SamplerShape" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
-shape = SubResource("CircleShape2D_12fae")
+shape = SubResource("RectangleShape2D_12fae")
 script = ExtResource("4_12fae")
