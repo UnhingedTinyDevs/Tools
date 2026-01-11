@@ -1,0 +1,123 @@
+[gd_scene load_steps=8 format=3 uid="uid://svg4ayx28bg7"]
+
+[ext_resource type="Script" uid="uid://btomdeu7jdykc" path="res://SceneManager/scripts/loading_text.gd" id="1_qcmus"]
+[ext_resource type="Script" uid="uid://b10nlw3p7qi6r" path="res://SceneManager/scripts/ellipsis.gd" id="2_jqx6s"]
+[ext_resource type="Script" uid="uid://dvygowp0mp8km" path="res://SceneManager/scripts/loading_text_animations.gd" id="2_pj517"]
+
+[sub_resource type="Animation" id="Animation_qnvfd"]
+resource_name = "EllipsisLoad"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ellipsis:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": ["", ".", "..", "..."]
+}
+
+[sub_resource type="Animation" id="Animation_qnhd0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ellipsis:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["..."]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%Ellipsis:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["..."]
+}
+
+[sub_resource type="Animation" id="Animation_qcmus"]
+resource_name = "none"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%Ellipsis:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xe2n1"]
+_data = {
+&"EllipsisLoad": SubResource("Animation_qnvfd"),
+&"RESET": SubResource("Animation_qnhd0"),
+&"none": SubResource("Animation_qcmus")
+}
+
+[node name="LoadingText" type="Control"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 0.25
+grow_horizontal = 2
+size_flags_horizontal = 4
+script = ExtResource("1_qcmus")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Loading" type="RichTextLabel" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+bbcode_enabled = true
+text = "[b]Loading[/b] "
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+autowrap_trim_flags = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ellipsis" type="RichTextLabel" parent="HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+bbcode_enabled = true
+text = "..."
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+script = ExtResource("2_jqx6s")
+
+[node name="LoadingTextAnimations" type="AnimationPlayer" parent="HBoxContainer/Ellipsis"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_xe2n1")
+}
+autoplay = "EllipsisLoad"
+script = ExtResource("2_pj517")

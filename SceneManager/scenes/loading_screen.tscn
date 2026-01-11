@@ -1,0 +1,261 @@
+[gd_scene load_steps=21 format=3 uid="uid://cuv34xojfphep"]
+
+[ext_resource type="Script" uid="uid://gbr48rh36whu" path="res://SceneManager/scripts/loading_screen.gd" id="1_c0xx0"]
+[ext_resource type="Script" uid="uid://d2s0385yei0yk" path="res://SceneManager/scripts/transitions.gd" id="2_mxs6b"]
+[ext_resource type="Script" uid="uid://15r1014ffb7p" path="res://SceneManager/scripts/background.gd" id="3_0erit"]
+[ext_resource type="PackedScene" uid="uid://vhvnvkb3qn17" path="res://SceneManager/scenes/GameplayTips.tscn" id="3_ddvtp"]
+[ext_resource type="Texture2D" uid="uid://b4nwgyjty0m2t" path="res://SceneManager/assets/images/Wallpaper_PikaOS_Parrot_8K.png" id="4_hxdmt"]
+[ext_resource type="Texture2D" uid="uid://bw5mtl1khpkw6" path="res://SceneManager/assets/images/why_s_it_not_going__by_neytirix_dds3mtw.jpg" id="4_t11yh"]
+[ext_resource type="Texture2D" uid="uid://ced411srr3kju" path="res://SceneManager/assets/images/i_hope_all_your_wool_is_forever_soggy_by_neytirix_ddbndi8.jpg" id="5_evir8"]
+[ext_resource type="Texture2D" uid="uid://bd5cp6qs2au64" path="res://SceneManager/assets/images/guard_it_well_okay__by_neytirix_ddcc1wt.jpg" id="6_rsjo0"]
+[ext_resource type="Texture2D" uid="uid://dadewp01dorp8" path="res://SceneManager/assets/images/bunny_butts_by_neytirix_dcrymvg.jpg" id="8_vyf2m"]
+[ext_resource type="PackedScene" uid="uid://svg4ayx28bg7" path="res://SceneManager/scenes/loading_text.tscn" id="9_evir8"]
+[ext_resource type="Script" uid="uid://cwlq3v47dnpt6" path="res://SceneManager/scripts/main_control.gd" id="9_m5y5e"]
+
+[sub_resource type="Animation" id="Animation_hro66"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainControl:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainControl:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_urgj1"]
+resource_name = "fade_from_black"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainControl:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.7)
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"transition_complete"],
+"method": &"emit_signal"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_c0xx0"]
+resource_name = "fade_to_black"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainControl:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.7)
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.766667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"report_midpoint"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_oh8p0"]
+resource_name = "slide_from_left"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainControl:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.366667, -193.857, 0.266667, 8.75172, 1152, -0.166667, -892.966, 0.2, -952.557),
+"times": PackedFloat32Array(0, 0.7)
+}
+
+[sub_resource type="Animation" id="Animation_o3s7b"]
+resource_name = "slide_from_right"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainControl:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.266667, 282.87, 0.25, 0, -1152, -0.25, 0, 0.233333, 672.106),
+"times": PackedFloat32Array(0, 0.7)
+}
+
+[sub_resource type="Animation" id="Animation_gxmw0"]
+resource_name = "slide_to_left"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainControl:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1152, -0.25, 0, 0.16666667, -1041.5, 0, -0.366667, -193.857, 0.25, 0),
+"times": PackedFloat32Array(0, 0.7)
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.766667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"report_midpoint"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_v88sh"]
+resource_name = "slide_to_right"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainControl:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-1152, -0.25, 0, 0.233333, 672.106, 0, -0.266667, 282.87, 0.25, 0),
+"times": PackedFloat32Array(0, 0.7)
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.766667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"report_midpoint"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_urgj1"]
+_data = {
+&"RESET": SubResource("Animation_hro66"),
+&"fade_from_black": SubResource("Animation_urgj1"),
+&"fade_to_black": SubResource("Animation_c0xx0"),
+&"slide_from_left": SubResource("Animation_oh8p0"),
+&"slide_from_right": SubResource("Animation_o3s7b"),
+&"slide_to_left": SubResource("Animation_gxmw0"),
+&"slide_to_right": SubResource("Animation_v88sh")
+}
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hxdmt"]
+texture = ExtResource("4_t11yh")
+
+[node name="LoadingScreen" type="CanvasLayer"]
+script = ExtResource("1_c0xx0")
+tips = Array[String](["HELP ME IM TRAPPED IN A LOOP", "WHAT ARE YOU WAITING FOR GO GET HELP", "AHHHHHH", "GOD WHY", "WHY ARE YOU STILL WAITING"])
+tip_duration = 5.0
+background_img = Array[CompressedTexture2D]([ExtResource("8_vyf2m"), ExtResource("6_rsjo0"), ExtResource("4_t11yh"), ExtResource("5_evir8"), ExtResource("4_hxdmt")])
+background_duration = 20.0
+
+[node name="Transitions" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_urgj1")
+}
+script = ExtResource("2_mxs6b")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="MainControl" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.00024414063
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("9_m5y5e")
+
+[node name="Background" type="Panel" parent="MainControl"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_hxdmt")
+script = ExtResource("3_0erit")
+images = Array[CompressedTexture2D]([ExtResource("8_vyf2m"), ExtResource("6_rsjo0"), ExtResource("4_t11yh"), ExtResource("5_evir8"), ExtResource("4_hxdmt")])
+background_duration = 20.0
+metadata/_custom_type_script = "uid://15r1014ffb7p"
+
+[node name="Progress" type="ProgressBar" parent="MainControl"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -309.0
+offset_top = -13.0
+offset_right = 311.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+
+[node name="LoadingText" parent="MainControl" instance=ExtResource("9_evir8")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="GameplayTips" parent="MainControl" instance=ExtResource("3_ddvtp")]
+unique_name_in_owner = true
+layout_mode = 1
+tip_duration = 5.0
+_tips = Array[String](["HELP ME IM TRAPPED IN A LOOP", "WHAT ARE YOU WAITING FOR GO GET HELP", "AHHHHHH", "GOD WHY", "WHY ARE YOU STILL WAITING"])

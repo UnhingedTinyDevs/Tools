@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bh1llhygf5hh8"]
 
-[ext_resource type="Texture2D" uid="uid://bhbexymskfkui" path="res://PointSampler/RedFlag.png" id="1_r0uly"]
+[ext_resource type="Texture2D" uid="uid://bhbexymskfkui" path="res://PointSampler/assets/RedFlag.png" id="1_r0uly"]
 
 [node name="Point" type="Node2D"]
 
