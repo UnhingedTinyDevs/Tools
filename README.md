@@ -7,14 +7,14 @@ This repositoy if a collection of a bunch of tools that can be grabbed and useed
 - [Contributing](#contributing)
 
 ## About
-Simple Drag and drop folder for different games tools for Godot development. Almost all Tools will be made for [Godot4.5](https://godotengine.org/download/archive/4.5-stable/) 
+  Simple Drag and drop folder for different games tools for Godot development. Almost all Tools will be made for [Godot4.5](https://godotengine.org/download/archive/4.5-stable/) 
 and above. In general tools should have as little coupling between them as possiable. Tools will be broken up in to 4 main categories 
 - Autoloads: General Singleton scripts that are used throughout projects i.e. SceneManager
 - Nodes: Typically tools that you will add to the game tree.
 - Resources: These need to typically follow some sort of interface.
 
 ## Contributing
-Feel free to open request for new tools or even add them yourself.
+  Feel free to open request for new tools or even add them yourself.
 - follow the godot code [style guide](https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_styleguide.html)
 - Test all code make sure it works.
 - Make sure all warnings are fixed.
@@ -30,7 +30,9 @@ An overview of each of the tool.
 ### PointSampler
 Uses the Poisson Disk Distribution to sample points in a given area. Allows for live editing in the editor.
 
-<img src="/Docs/Images/point_sampler_circle.png" alt="drawing" width="200"/>
+<img src="/PointSampler/assets/images/point_sampler_circle.png" alt="drawing" width="600"/>
 
 ### SceneManager
-an autoload and associated loading screen to handle loading content.
+  an autoload and fully customizable loadingscreen, with background slideshow and gameplay tips, to entertain the player while content is loaded on threads in the background perfect for speedy loadtimes to get the player back in the action faster.
+
+<img src="/SceneManager/assets/images/theme_dropdown.png" alt="drawing" width="600"/>

@@ -80,9 +80,9 @@ The point sampler is an [Area2D]https://docs.godotengine.org/en/stable/classes/c
 
 ## Examples
 ### Larger Circle
-![PointSampler Circle](/Docs/Images/point_sampler_circle.png)
+![PointSampler Circle](./assets/images/point_sampler_circle.png)
 
 ### Smaller Rectangle
-![PointSampler Rectangle](/Docs/Images/point_sampler_rect.png)
+![PointSampler Rectangle](./assets/images/point_sampler_rect.png)
 
 
