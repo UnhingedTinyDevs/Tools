@@ -10,7 +10,7 @@ and is a tool script to see the updates happen automatically in the editor.
 if true and more than 2 images are provided the images will cycle over time. If false and more than 2 images are provided a random one will
 be displayed as a static image.
 
-### Images (Array[CompressedTexture2D)
+### Images (Array[CompressedTexture2D])
 A list of [CompressedTexture2D](https://docs.godotengine.org/en/stable/classes/class_compressedtexture2d.html)'s are displayed as background images. Having this makes it easy to drag and drop images into the editor
 to use with this background. 
 
@@ -25,3 +25,4 @@ What kind of transition should be used by the slide show if any. It is an intege
 - FADE
 - SLIDE_RIGHT
 - SLIDE_LEFT
+
