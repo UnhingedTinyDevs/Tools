@@ -71,7 +71,7 @@ and this is basically all the [PointSampler](#pointsampler) does is generate poi
 
 
 ## PointSampler
-The point sampler is an [Area2D]https://docs.godotengine.org/en/stable/classes/class_area2d.html() that when given [PoissonSettings](#poissonsettings) will generate points using [PoissonDisc](#poissondisc) class. This allows you to visually define different distributions and save there settings so that you can swap them out easily.
+The point sampler is an [Area2D](https://docs.godotengine.org/en/stable/classes/class_area2d.html()) that when given [PoissonSettings](#poissonsettings) will generate points using [PoissonDisc](#poissondisc) class. This allows you to visually define different distributions and save there settings so that you can swap them out easily.
 
 ### How To
 1. add the  **Sampler Node** to the scene tree
