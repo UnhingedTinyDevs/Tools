@@ -21,9 +21,11 @@ There are a few different transition types built in currently
 
 
 ## Loading Screen
+**NOTE: This loading screen relies on the BackgroundPanel also found in this Repo**
+
 The loading screen is a collection of UI nodes and tool scripts to provide an interactive in editor experience. Watch the screen react live while you change the scene or add images and tips.
 There are 3 main parts of the loading screen and they are:
-- **Background:** Displays images or a black screen
+- **Background:** Displays images or a black screen (seperate project folder)
 - **Loading Text:** Displays Title like text at the top of the loading screen
 - **Gameplay Tips:** Displays random gameplay tips at the bottom of the screen
   
@@ -32,3 +34,4 @@ There are 3 main parts of the loading screen and they are:
 ![Theme DropDown](./assets/images/theme_dropdown.png)
 #### Image and Tip Customization
 ![Theme DropDown](./assets/images/bg_and_text_lists.png)
+
