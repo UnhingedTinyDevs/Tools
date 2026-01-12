@@ -36,3 +36,8 @@ Uses the Poisson Disk Distribution to sample points in a given area. Allows for 
   an autoload and fully customizable loadingscreen, with background slideshow and gameplay tips, to entertain the player while content is loaded on threads in the background perfect for speedy loadtimes to get the player back in the action faster.
 
 <img src="/SceneManager/assets/images/theme_dropdown.png" alt="drawing" width="600"/>
+
+### State Machine
+A simple node based statemachine implementation in which a state machine has many child (state) nodes and manages which one runs.
+
+<img src="/StateMachine/assets/state_machine.png" alt="drawing" width="600"/>
