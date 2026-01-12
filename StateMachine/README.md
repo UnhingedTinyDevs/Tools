@@ -27,13 +27,15 @@ func process_input(_event: InputEvent):
 
 ### Move State
 ```gdscript
+@export var idle_state: State
+
 func enter() -> void:
 	super()
 
 
 func process_physics(_delta: float):
 	var movement = Vector2.ZERO
-  movement = move_cmpt.get_move_direction()
+	movement = move_cmpt.get_move_direction()
 		
 	if movement == Vector2.ZERO:
 		return idle_state
@@ -56,3 +58,4 @@ know this these are simple me abusing the `@abstract` syntax and calling it an i
 3. AudioComponent
 
 These are the main ones as most likely you will want each state to have its own animation, audio, and movement.
+
