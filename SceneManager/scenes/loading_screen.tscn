@@ -189,7 +189,7 @@ _data = {
 }
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hxdmt"]
-texture = ExtResource("4_hxdmt")
+texture = ExtResource("5_evir8")
 
 [node name="LoadingScreen" type="CanvasLayer"]
 script = ExtResource("1_c0xx0")
