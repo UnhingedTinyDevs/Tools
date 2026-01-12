@@ -84,5 +84,3 @@ The point sampler is an [Area2D](https://docs.godotengine.org/en/stable/classes/
 
 ### Smaller Rectangle
 ![PointSampler Rectangle](./assets/images/point_sampler_rect.png)
-
-

@@ -84,6 +84,7 @@ func init(imgs: Array[CompressedTexture2D], dur: float) -> void:
 	images = imgs
 
 
+## Set the duration for how long to display a background
 func set_duration(v: float) -> void:
 	duration = v
 	if is_inside_tree():
@@ -92,6 +93,7 @@ func set_duration(v: float) -> void:
 		_timer.start()
 
 
+## Sets the array of images to be used as backgrounds
 func set_images(v: Array[CompressedTexture2D]) -> void:
 	if v == images: return
 	images = v
@@ -102,13 +104,20 @@ func set_images(v: Array[CompressedTexture2D]) -> void:
 	pass
 
 
+## Selects a random image to display.
 func random_image() -> void:
+	if images.is_empty(): # if no images black bg
+		set_static_img()
+	if not images.size() == 1: # if one image load that image.
+		set_static_img(images[0])
+	
 	change_image(images.pick_random())
-	if slide_show:
+	if slide_show: # restart slideshow if need be.
 		_ensure_timer()
 		_timer.start()
 
 
+## Changes the image and plays a transition if needed.
 func change_image(img: CompressedTexture2D = null) -> void:
 	if not img:
 		if not get_theme_stylebox(MY_BOX) == _bg_flat_box:
@@ -126,7 +135,6 @@ func change_image(img: CompressedTexture2D = null) -> void:
 
 ## Set an image with out starting a timer
 func set_static_img(img: CompressedTexture2D = null) -> void:
-	print("Setting Static Image")
 	if not img:
 		_load_default_bg()
 		
@@ -139,7 +147,7 @@ func set_static_img(img: CompressedTexture2D = null) -> void:
 func start_slide_show() -> void:
 	if not slide_show:
 		return
-	print("Starting SlideShow")
+	_ensure_timer()
 	random_image()
 	pass
 
@@ -157,16 +165,13 @@ func transition_end_name() -> String:
 		0: return "fade_in"
 		1: return "slide_from_right"
 		2: return "slide_from_left"
-		_: 
-			print("invalid transition type")
-			return "fade_in"
+		_: return "fade_in"
 
 
 #endregion -------------------------------------------------------------------------------
 
 #region Signal Handlers ------------------------------------------------------------------
 func _on_timer_timeout() -> void:
-	print("background timer timed out")
 	if not slide_show: # if there is no slide show stop the timer
 		_timer.stop()
 		return
@@ -190,16 +195,15 @@ func _load_default_bg() -> void:
 
 # plays a transition animation
 # will always wait for the animation it played to finish playing
+# use as an await function
 func _play_transition(n: String) -> void:
 	if not transitions:
 		return
 	if not background_transitions:
-		print("transition player not set")
 		return
-	print("Playing transitions " + n)
 	background_transitions.play(n)
 	await background_transitions.animation_finished
-	print("Animation Finished")
+
 
 
 # Simply places the compressed texture in the image box

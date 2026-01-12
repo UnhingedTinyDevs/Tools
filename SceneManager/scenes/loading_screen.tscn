@@ -13,22 +13,21 @@
 [ext_resource type="Script" uid="uid://cwlq3v47dnpt6" path="res://SceneManager/scripts/main_control.gd" id="9_m5y5e"]
 
 [sub_resource type="Theme" id="Theme_hxdmt"]
-Label/colors/font_color = Color(1, 0, 0, 1)
+Label/colors/font_color = Color(1, 1, 1, 1)
 Label/colors/font_outline_color = Color(0, 0, 0, 1)
-Label/colors/font_shadow_color = Color(0.21176471, 0.21176471, 0.21176471, 0.74509805)
-Label/constants/outline_size = 10
-Label/constants/shadow_offset_x = 3
-Label/constants/shadow_offset_y = 3
-Label/constants/shadow_outline_size = 3
+Label/colors/font_shadow_color = Color(0, 0, 0, 0)
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/constants/shadow_outline_size = 1
 Label/font_sizes/font_size = 30
 RichTextLabel/colors/default_color = Color(0, 1, 1, 1)
 RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
-RichTextLabel/colors/font_shadow_color = Color(0.34509805, 0.34509805, 0.34509805, 0.60784316)
-RichTextLabel/constants/outline_size = 20
-RichTextLabel/constants/shadow_offset_x = 8
-RichTextLabel/constants/shadow_offset_y = 8
-RichTextLabel/constants/shadow_outline_size = 15
-RichTextLabel/font_sizes/normal_font_size = 70
+RichTextLabel/colors/font_shadow_color = Color(0, 0, 0, 0)
+RichTextLabel/constants/outline_size = 0
+RichTextLabel/constants/shadow_offset_x = 1
+RichTextLabel/constants/shadow_offset_y = 1
+RichTextLabel/constants/shadow_outline_size = 1
+RichTextLabel/font_sizes/normal_font_size = 80
 
 [sub_resource type="Animation" id="Animation_hro66"]
 length = 0.001
@@ -207,7 +206,7 @@ _data = {
 }
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m5y5e"]
-texture = ExtResource("6_rsjo0")
+texture = ExtResource("5_evir8")
 
 [node name="LoadingScreen" type="CanvasLayer"]
 script = ExtResource("1_c0xx0")
