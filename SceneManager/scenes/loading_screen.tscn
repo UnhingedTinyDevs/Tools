@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cuv34xojfphep"]
+[gd_scene load_steps=22 format=3 uid="uid://cuv34xojfphep"]
 
 [ext_resource type="Script" uid="uid://gbr48rh36whu" path="res://SceneManager/scripts/loading_screen.gd" id="1_c0xx0"]
 [ext_resource type="Script" uid="uid://d2s0385yei0yk" path="res://SceneManager/scripts/transitions.gd" id="2_mxs6b"]
@@ -11,6 +11,24 @@
 [ext_resource type="Texture2D" uid="uid://dadewp01dorp8" path="res://SceneManager/assets/images/bg/bunny_butts_by_neytirix_dcrymvg.jpg" id="8_vyf2m"]
 [ext_resource type="PackedScene" uid="uid://svg4ayx28bg7" path="res://SceneManager/scenes/loading_text.tscn" id="9_evir8"]
 [ext_resource type="Script" uid="uid://cwlq3v47dnpt6" path="res://SceneManager/scripts/main_control.gd" id="9_m5y5e"]
+
+[sub_resource type="Theme" id="Theme_hxdmt"]
+Label/colors/font_color = Color(1, 0, 0, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/colors/font_shadow_color = Color(0.21176471, 0.21176471, 0.21176471, 0.74509805)
+Label/constants/outline_size = 10
+Label/constants/shadow_offset_x = 3
+Label/constants/shadow_offset_y = 3
+Label/constants/shadow_outline_size = 3
+Label/font_sizes/font_size = 30
+RichTextLabel/colors/default_color = Color(0, 1, 1, 1)
+RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/font_shadow_color = Color(0.34509805, 0.34509805, 0.34509805, 0.60784316)
+RichTextLabel/constants/outline_size = 20
+RichTextLabel/constants/shadow_offset_x = 8
+RichTextLabel/constants/shadow_offset_y = 8
+RichTextLabel/constants/shadow_outline_size = 15
+RichTextLabel/font_sizes/normal_font_size = 70
 
 [sub_resource type="Animation" id="Animation_hro66"]
 length = 0.001
@@ -103,8 +121,8 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.366667, -193.857, 0.266667, 8.75172, 1152, -0.166667, -892.966, 0.2, -952.557),
-"times": PackedFloat32Array(0, 0.7)
+"points": PackedFloat32Array(0, -0.366667, -193.857, 0.266667, 8.75172, 1004, -0.166667, -892.966, 0.2, -952.557),
+"times": PackedFloat32Array(0, 0.76666665)
 }
 
 [sub_resource type="Animation" id="Animation_o3s7b"]
@@ -188,12 +206,13 @@ _data = {
 &"slide_to_right": SubResource("Animation_v88sh")
 }
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hxdmt"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m5y5e"]
 texture = ExtResource("6_rsjo0")
 
 [node name="LoadingScreen" type="CanvasLayer"]
 script = ExtResource("1_c0xx0")
-tips = Array[String](["HELP ME IM TRAPPED IN A LOOP", "WHAT ARE YOU WAITING FOR GO GET HELP", "AHHHHHH", "GOD WHY", "WHY ARE YOU STILL WAITING"])
+theme = SubResource("Theme_hxdmt")
+tips = Array[String](["HELP ME IM TRAPPED IN A LOOP", "WHAT ARE YOU WAITING FOR GO GET HELP", "AHHHHHH", "GOD WHY", "WHY ARE YOU STILL WAITING", "LORD HAVE MERCY"])
 tip_duration = 5.0
 background_img = Array[CompressedTexture2D]([ExtResource("8_vyf2m"), ExtResource("6_rsjo0"), ExtResource("4_t11yh"), ExtResource("5_evir8"), ExtResource("4_hxdmt")])
 background_duration = 20.0
@@ -214,9 +233,10 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 0.00024414063
+offset_right = -0.00048828125
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_hxdmt")
 script = ExtResource("9_m5y5e")
 
 [node name="Background" type="Panel" parent="MainControl"]
@@ -227,15 +247,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_hxdmt")
+theme_override_styles/panel = SubResource("StyleBoxTexture_m5y5e")
 script = ExtResource("3_0erit")
 images = Array[CompressedTexture2D]([ExtResource("8_vyf2m"), ExtResource("6_rsjo0"), ExtResource("4_t11yh"), ExtResource("5_evir8"), ExtResource("4_hxdmt")])
-background_duration = 20.0
+duration = 20.0
 metadata/_custom_type_script = "uid://15r1014ffb7p"
 
 [node name="Progress" type="ProgressBar" parent="MainControl"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -258,4 +277,4 @@ layout_mode = 1
 unique_name_in_owner = true
 layout_mode = 1
 tip_duration = 5.0
-_tips = Array[String](["HELP ME IM TRAPPED IN A LOOP", "WHAT ARE YOU WAITING FOR GO GET HELP", "AHHHHHH", "GOD WHY", "WHY ARE YOU STILL WAITING"])
+_tips = Array[String](["HELP ME IM TRAPPED IN A LOOP", "WHAT ARE YOU WAITING FOR GO GET HELP", "AHHHHHH", "GOD WHY", "WHY ARE YOU STILL WAITING", "LORD HAVE MERCY"])

@@ -1,19 +1,56 @@
-[gd_scene load_steps=8 format=3 uid="uid://di8k8qxahpbbo"]
+[gd_scene load_steps=14 format=3 uid="uid://di8k8qxahpbbo"]
 
 [ext_resource type="Script" uid="uid://ctoyqc2xuuo8k" path="res://MenuAudio/scripts/audio_menu.gd" id="1_0lq8y"]
-[ext_resource type="Texture2D" uid="uid://dadewp01dorp8" path="res://SceneManager/assets/images/bg/bunny_butts_by_neytirix_dcrymvg.jpg" id="2_4tmky"]
+[ext_resource type="Texture2D" uid="uid://c25mksqknivyj" path="res://SceneManager/assets/images/bg/heading_home_by_neytirix_dfljvk0.jpg" id="2_0lq8y"]
+[ext_resource type="Texture2D" uid="uid://bd5cp6qs2au64" path="res://SceneManager/assets/images/bg/guard_it_well_okay__by_neytirix_ddcc1wt.jpg" id="3_7k7v4"]
+[ext_resource type="PackedScene" uid="uid://ds056vh2hy34k" path="res://BackgroundPanel/scenes/background.tscn" id="4_4tmky"]
+[ext_resource type="Texture2D" uid="uid://dj5eoik8li1d7" path="res://SceneManager/assets/images/bg/are_you_lost__by_neytirix_ddx4x55.jpg" id="4_7k7v4"]
 [ext_resource type="Script" uid="uid://cjm0hn8oq2j4n" path="res://MenuAudio/scripts/main_control.gd" id="5_7k7v4"]
-[ext_resource type="StyleBox" uid="uid://j7w5jto8euh4" path="res://SceneManager/assets/black_background.tres" id="5_qni06"]
-[ext_resource type="Script" uid="uid://15r1014ffb7p" path="res://BackgroundPanel/scripts/background.gd" id="6_hcsqw"]
 
 [sub_resource type="Theme" id="Theme_4tmky"]
+RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
+RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/font_shadow_color = Color(0, 0, 0, 0)
+RichTextLabel/constants/outline_size = 0
+RichTextLabel/constants/shadow_offset_x = 1
+RichTextLabel/constants/shadow_offset_y = 1
+RichTextLabel/constants/shadow_outline_size = 1
+RichTextLabel/font_sizes/normal_font_size = 16
 
-[sub_resource type="Theme" id="Theme_lbxyb"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0lq8y"]
+texture = ExtResource("2_0lq8y")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0lq8y"]
+bg_color = Color(0.13333334, 0.13333334, 0.13333334, 0.8156863)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qni06"]
+bg_color = Color(0.12156863, 0.1882353, 0.09411765, 0.7882353)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7k7v4"]
+bg_color = Color(0.25369057, 0.043169044, 0.064578004, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+shadow_color = Color(0.57254905, 0, 0, 1)
+shadow_size = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c0nw7"]
+bg_color = Color(0.7563185, 0.5670485, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j4xup"]
+bg_color = Color(2.0696223e-06, 0.7072663, 0.5096127, 1)
 
 [node name="AudioMenu" type="CanvasLayer"]
 script = ExtResource("1_0lq8y")
 theme = SubResource("Theme_4tmky")
-backgrounds = Array[CompressedTexture2D]([ExtResource("2_4tmky")])
+backgrounds = Array[CompressedTexture2D]([ExtResource("2_0lq8y"), ExtResource("3_7k7v4"), ExtResource("4_7k7v4")])
 
 [node name="MainControl" type="Control" parent="."]
 unique_name_in_owner = true
@@ -23,31 +60,31 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_lbxyb")
+theme = SubResource("Theme_4tmky")
 script = ExtResource("5_7k7v4")
 
-[node name="Background" type="Panel" parent="MainControl"]
+[node name="Background" parent="MainControl" instance=ExtResource("4_4tmky")]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = ExtResource("5_qni06")
-script = ExtResource("6_hcsqw")
-metadata/_custom_type_script = "uid://15r1014ffb7p"
+theme_override_styles/panel = SubResource("StyleBoxTexture_0lq8y")
+images = Array[CompressedTexture2D]([ExtResource("2_0lq8y"), ExtResource("3_7k7v4"), ExtResource("4_7k7v4")])
+duration = 10.0
+transition_type = 0
 
 [node name="Control" type="Control" parent="MainControl"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = -4.0
+offset_right = 7.0
+offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MainControl/Control"]
-custom_minimum_size = Vector2(195, 150)
+[node name="Panel" type="Panel" parent="MainControl/Control"]
+custom_minimum_size = Vector2(256, 300)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -55,67 +92,110 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -97.5
-offset_top = -84.0
 offset_right = 97.5
-offset_bottom = 84.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_0lq8y")
 
-[node name="Label" type="Label" parent="MainControl/Control/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainControl/Control/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.00045819237
+
+[node name="Panel" type="Panel" parent="MainControl/Control/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qni06")
+
+[node name="Title" type="MarginContainer" parent="MainControl/Control/Panel/VBoxContainer/Panel"]
+layout_mode = 0
+offset_left = 3.0517578e-05
+offset_top = 4.0
+offset_right = 256.00003
+offset_bottom = 86.0
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="MainControl/Control/Panel/VBoxContainer/Panel/Title"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = " Audio 
-"
+text = " Audio "
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_trim_flags = 128
 
-[node name="Master" type="HBoxContainer" parent="MainControl/Control/VBoxContainer"]
+[node name="Master" type="MarginContainer" parent="MainControl/Control/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 40
+
+[node name="MasterComponents" type="HBoxContainer" parent="MainControl/Control/Panel/VBoxContainer/Master"]
 layout_mode = 2
 size_flags_horizontal = 8
+alignment = 1
 
-[node name="Label" type="Label" parent="MainControl/Control/VBoxContainer/Master"]
+[node name="Label" type="Label" parent="MainControl/Control/Panel/VBoxContainer/Master/MasterComponents"]
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
-text = "Master"
+text = "Master:"
 
-[node name="HSlider" type="HSlider" parent="MainControl/Control/VBoxContainer/Master"]
+[node name="HSlider" type="HSlider" parent="MainControl/Control/Panel/VBoxContainer/Master/MasterComponents"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 value = 30.0
 
-[node name="Music" type="HBoxContainer" parent="MainControl/Control/VBoxContainer"]
+[node name="Dialog" type="MarginContainer" parent="MainControl/Control/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 40
+
+[node name="Dialog" type="HBoxContainer" parent="MainControl/Control/Panel/VBoxContainer/Dialog"]
 layout_mode = 2
 size_flags_horizontal = 8
 
-[node name="Label" type="Label" parent="MainControl/Control/VBoxContainer/Music"]
+[node name="Label" type="Label" parent="MainControl/Control/Panel/VBoxContainer/Dialog/Dialog"]
 layout_mode = 2
-text = "Music"
+text = "Dialog:"
 
-[node name="HSlider" type="HSlider" parent="MainControl/Control/VBoxContainer/Music"]
+[node name="HSlider" type="HSlider" parent="MainControl/Control/Panel/VBoxContainer/Dialog/Dialog"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 
-[node name="Dialog" type="HBoxContainer" parent="MainControl/Control/VBoxContainer"]
+[node name="Music" type="MarginContainer" parent="MainControl/Control/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 40
+
+[node name="Music" type="HBoxContainer" parent="MainControl/Control/Panel/VBoxContainer/Music"]
 layout_mode = 2
 size_flags_horizontal = 8
 
-[node name="Label" type="Label" parent="MainControl/Control/VBoxContainer/Dialog"]
+[node name="Label" type="Label" parent="MainControl/Control/Panel/VBoxContainer/Music/Music"]
 layout_mode = 2
-text = "Dialog"
+text = "Music:"
 
-[node name="HSlider" type="HSlider" parent="MainControl/Control/VBoxContainer/Dialog"]
+[node name="HSlider" type="HSlider" parent="MainControl/Control/Panel/VBoxContainer/Music/Music"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxFlat_7k7v4")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_c0nw7")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_j4xup")
+value = 50.0
 
-[node name="SFX" type="HBoxContainer" parent="MainControl/Control/VBoxContainer"]
-visible = false
+[node name="SFX" type="MarginContainer" parent="MainControl/Control/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 40
+
+[node name="SFX" type="HBoxContainer" parent="MainControl/Control/Panel/VBoxContainer/SFX"]
 layout_mode = 2
 size_flags_horizontal = 8
 
-[node name="Label" type="Label" parent="MainControl/Control/VBoxContainer/SFX"]
+[node name="Label" type="Label" parent="MainControl/Control/Panel/VBoxContainer/SFX/SFX"]
 layout_mode = 2
-text = "SFX"
+text = "SFX:"
 
-[node name="HSlider" type="HSlider" parent="MainControl/Control/VBoxContainer/SFX"]
+[node name="HSlider" type="HSlider" parent="MainControl/Control/Panel/VBoxContainer/SFX/SFX"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2

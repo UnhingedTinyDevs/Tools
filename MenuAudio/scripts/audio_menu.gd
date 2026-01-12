@@ -27,7 +27,7 @@ func _ready() -> void:
 		pass
 	_setup_theme()
 	if background:
-		#background.init(backgrounds, background_duration)
+		background.init(backgrounds, background_duration)
 		pass
 
 #endregion
@@ -44,6 +44,7 @@ func set_bg_images(v: Array[CompressedTexture2D]) -> void:
 	backgrounds = v
 	if background:
 		background.images = v
+		background.random_image()
 
 func set_bg_duration(v: float) -> void:
 	if v == background_duration: return
