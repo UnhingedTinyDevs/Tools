@@ -34,7 +34,7 @@ Uses the Poisson Disk Distribution to sample points in a given area. Allows for 
 
 ### Background Panel
 A simple panel node that takes a list of images and a transitions and plays a slide show. Or it can display a solid image or color. Used as a base of a lot of other menus as it acts
-as a more advanced texture rect which fits most projects needs better.
+as a more advanced texture rect which fits most projects needs better. You can see it being used in the SceneManager.
 
 ### SceneManager
 An autoload and fully customizable loadingscreen, with background slideshow and gameplay tips, to entertain the player while content is loaded on threads in the background perfect for speedy loadtimes to get the player back in the action faster.
