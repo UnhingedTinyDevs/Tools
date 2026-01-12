@@ -92,35 +92,40 @@ func set_theme(v: Theme) -> void:
 func set_tips(v: Array[String]) -> void:
 	if tips == v: return
 	tips = v
-	gameplay_tips._tips = v
+	if gameplay_tips:
+		gameplay_tips._tips = v
 
 
 ## Sets the durration each gameplay tip will be displayed for.
 func set_tip_duration(v: float) -> void:
 	if tip_duration == v: return
 	tip_duration = v
-	gameplay_tips.tip_duration = v
+	if gameplay_tips:
+		gameplay_tips.tip_duration = v
 
 
 ## Sets the in transition when loading the gameplay tips
 func set_tip_in_transition(v: String) -> void:
 	if v == tip_in_transition: return
 	tip_in_transition = v
-	gameplay_tips.transition_in_name = tip_in_transition
+	if gameplay_tips:
+		gameplay_tips.transition_in_name = tip_in_transition
 
 
 ## Sets an array of background images that can be transitioned too
 func set_background_img(v: Array[CompressedTexture2D]) -> void:
 	if v == background_img: return
 	background_img = v
-	background.images = v
+	if background:
+		background.images = v
 
 
 ## Sets the duration the background is dispalyed for before transitoning
 func set_background_duration(v: float) -> void:
 	if background_duration == v: return
 	background_duration = v
-	background.background_duration = background_duration
+	if background:
+		background.background_duration = background_duration
 
 
 ## Sets the text to display in the title of the screen. 
@@ -128,7 +133,8 @@ func set_background_duration(v: float) -> void:
 func set_loading_text(s: String) -> void:
 	if s == text: return
 	text = s
-	loading_text.set_text(text)
+	if loading_text:
+		loading_text.set_text(text)
 
 
 func set_elispse(v: bool) -> void:

@@ -1,0 +1,151 @@
+[gd_scene load_steps=12 format=3 uid="uid://ds056vh2hy34k"]
+
+[ext_resource type="Script" uid="uid://15r1014ffb7p" path="res://BackgroundPanel/scripts/background.gd" id="2_s7ugq"]
+[ext_resource type="Texture2D" uid="uid://dadewp01dorp8" path="res://SceneManager/assets/images/bg/bunny_butts_by_neytirix_dcrymvg.jpg" id="6_o0goi"]
+[ext_resource type="Script" uid="uid://ch6lsr0n7wker" path="res://BackgroundPanel/scripts/background_transitions.gd" id="8_o8ini"]
+[ext_resource type="Script" uid="uid://wkspe7pv56ka" path="res://BackgroundPanel/scripts/black_bg.gd" id="10_nv2gf"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sv7ef"]
+texture = ExtResource("6_o0goi")
+
+[sub_resource type="Animation" id="Animation_nvhmb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_wnfs1"]
+resource_name = "fade_in"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nv2gf"]
+resource_name = "fade_out"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_gnyn2"]
+resource_name = "slide_from_left"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1226, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_4hhjx"]
+resource_name = "slide_to_left"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nvhmb"]
+_data = {
+&"RESET": SubResource("Animation_nvhmb"),
+&"fade_in": SubResource("Animation_wnfs1"),
+&"fade_out": SubResource("Animation_nv2gf"),
+&"slide_from_left": SubResource("Animation_gnyn2"),
+&"slide_to_left": SubResource("Animation_4hhjx")
+}
+
+[node name="Background" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_sv7ef")
+script = ExtResource("2_s7ugq")
+images = Array[CompressedTexture2D]([ExtResource("6_o0goi")])
+duration = 20.0
+
+[node name="BackgroundTransitions" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_nvhmb")
+}
+script = ExtResource("8_o8ini")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.00024414063
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("10_nv2gf")

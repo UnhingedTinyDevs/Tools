@@ -1,0 +1,3 @@
+#@tool
+extends AnimationPlayer
+class_name BackgroundTransitions

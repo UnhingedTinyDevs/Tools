@@ -16,10 +16,12 @@ config/features=PackedStringArray("4.5", "Forward Plus")
 [file_customization]
 
 folder_colors={
+"res://BackgroundPanel/": "green",
 "res://ComponentAnimation/": "red",
 "res://ComponentAttack/": "red",
 "res://ComponentAudio/": "red",
 "res://ComponentMove/": "red",
+"res://MenuAudio/": "red",
 "res://PointSampler/": "green",
 "res://SceneManager/": "green",
 "res://StateMachine/": "green"
