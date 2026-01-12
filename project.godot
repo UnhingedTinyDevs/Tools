@@ -12,3 +12,15 @@ config_version=5
 
 config/name="Tools"
 config/features=PackedStringArray("4.5", "Forward Plus")
+
+[file_customization]
+
+folder_colors={
+"res://ComponentAnimation/": "red",
+"res://ComponentAttack/": "red",
+"res://ComponentAudio/": "red",
+"res://ComponentMove/": "red",
+"res://PointSampler/": "green",
+"res://SceneManager/": "green",
+"res://StateMachine/": "green"
+}

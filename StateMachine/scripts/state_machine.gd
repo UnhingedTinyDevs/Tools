@@ -7,8 +7,6 @@ class_name StateMachine
 ## args array.
 
 #region API ------------------------------------------------------------------------------
-# Public functions that other scripts are allowed to call.
-# Put your gameplay logic and reusable functions here.
 @warning_ignore("unused_parameter")
 func init(...args) -> void:
 	pass

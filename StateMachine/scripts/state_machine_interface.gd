@@ -82,10 +82,8 @@ func _force_change_state(state: State) -> void:
 	_current_state.enter()
 
 
-## Initalize the state machine with its arguments. [br][br]
-## NOTE: '...args' becomes an array of all the parameters passed in. so make sure to check the args 
-## no checking is currently in place and that is intierly up to the implementation
-@abstract func init(...args) -> void;
-@abstract func process_frame(_delta: float) -> void;
-@abstract func process_physics(_delta: float) -> void;
-@abstract func process_input(event: InputEvent) -> void;
+
+@abstract func init(...args) -> void; ## Initalize the state machine with its arguments.
+@abstract func process_frame(_delta: float) -> void; ## runs every frame
+@abstract func process_physics(_delta: float) -> void; ## runs every physics process
+@abstract func process_input(event: InputEvent) -> void; ## checks for unhandled input
