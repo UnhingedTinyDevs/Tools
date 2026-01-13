@@ -188,6 +188,8 @@ func _on_timer_timeout() -> void:
 
 # Loads a basic black background
 func _load_default_bg() -> void:
+	if not images.is_empty():
+		return
 	add_theme_stylebox_override(MY_BOX, _bg_flat_box)
 	if _timer and not _timer.is_stopped():
 		_timer.stop()

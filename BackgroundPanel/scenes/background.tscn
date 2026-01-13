@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://ds056vh2hy34k"]
+[gd_scene load_steps=19 format=3 uid="uid://ds056vh2hy34k"]
 
 [ext_resource type="Texture2D" uid="uid://c4xb1014be8f4" path="res://SceneManager/assets/images/bg/guardian_of_the_beetroot_by_neytirix_ddgl0np.jpg" id="1_wnfs1"]
 [ext_resource type="Script" uid="uid://15r1014ffb7p" path="res://BackgroundPanel/scripts/background.gd" id="2_s7ugq"]
@@ -7,12 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://b4nwgyjty0m2t" path="res://SceneManager/assets/images/bg/Wallpaper_PikaOS_Parrot_8K.png" id="5_nv2gf"]
 [ext_resource type="Texture2D" uid="uid://wdulc5s50pwt" path="res://SceneManager/assets/images/bg/the_mooshroom_by_neytirix_deyzsx6.jpg" id="6_4hhjx"]
 [ext_resource type="Texture2D" uid="uid://5sbopx21qu3d" path="res://SceneManager/assets/images/bg/on_duty_by_neytirix_ddff7cy.jpg" id="7_gnyn2"]
-[ext_resource type="Texture2D" uid="uid://d0qv1ukk2g66f" path="res://SceneManager/assets/images/bg_and_text_lists.png" id="8_nv2gf"]
 [ext_resource type="Script" uid="uid://ch6lsr0n7wker" path="res://BackgroundPanel/scripts/background_transitions.gd" id="8_o8ini"]
 [ext_resource type="Script" uid="uid://wkspe7pv56ka" path="res://BackgroundPanel/scripts/black_bg.gd" id="10_nv2gf"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nv2gf"]
-texture = ExtResource("4_o0goi")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wnfs1"]
+texture = ExtResource("1_wnfs1")
 
 [sub_resource type="Animation" id="Animation_nvhmb"]
 length = 0.001
@@ -119,7 +118,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(2, 2),
-"points": PackedFloat32Array(0, -0.24999999, 0, 0.4, 0, 1202, -0.00016666453, -0.16666667, 0, 0),
+"points": PackedFloat32Array(0, -0.24999999, 0, 0.4, 0, 1921, -0.00016666453, -0.16666667, 0, 0),
 "times": PackedFloat32Array(0, 1)
 }
 tracks/1/type = "bezier"
@@ -145,7 +144,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(2, 2),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -1162, -0.14908521, 193.66667, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -1921, -0.14908521, 193.66667, 0, 0),
 "times": PackedFloat32Array(0, 0.8945112)
 }
 
@@ -160,7 +159,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(0, 2, 2),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1167, -0.0005842652, -194.50002, 0, 0, 0, -0.13087541, 194.50002, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1920, -0.0005842652, -194.50002, 0, 0, 0, -0.13087541, 194.50002, 0, 0),
 "times": PackedFloat32Array(0, 0.003505591, 0.788758)
 }
 
@@ -174,28 +173,17 @@ tracks/0/path = NodePath("ColorRect:position:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"handle_modes": PackedInt32Array(2, 2),
-"points": PackedFloat32Array(-1167, 0, 0, 0.16666667, 394.83334, 0, -0.14874561, -194.50002, 0, 0),
-"times": PackedFloat32Array(0, 0.89247364)
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-1921, -0.14500001, 334.83334, 0, 0, 0, 0, 0, 0.16666667, 394.83334),
+"times": PackedFloat32Array(0, 0.9)
 }
-tracks/1/type = "bezier"
+tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("ColorRect:position:y")
+tracks/1/path = NodePath("ColorRect:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"handle_modes": PackedInt32Array(2, 2),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.14874561, 0, 0, 0),
-"times": PackedFloat32Array(0, 0.89247364)
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("ColorRect:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -221,9 +209,10 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_nv2gf")
+theme_override_styles/panel = SubResource("StyleBoxTexture_wnfs1")
 script = ExtResource("2_s7ugq")
-images = Array[CompressedTexture2D]([ExtResource("3_fqhi0"), ExtResource("4_o0goi"), ExtResource("5_nv2gf"), ExtResource("6_4hhjx"), ExtResource("7_gnyn2"), ExtResource("1_wnfs1"), ExtResource("8_nv2gf")])
+images = Array[CompressedTexture2D]([ExtResource("3_fqhi0"), ExtResource("4_o0goi"), ExtResource("5_nv2gf"), ExtResource("6_4hhjx"), ExtResource("7_gnyn2"), ExtResource("1_wnfs1")])
+transition_type = 1
 
 [node name="BackgroundTransitions" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
@@ -237,7 +226,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 0.0061035156
+offset_right = 0.0034179688
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
