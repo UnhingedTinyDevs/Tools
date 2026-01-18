@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://sxibtc7xfwr6"]
+[gd_scene load_steps=33 format=3 uid="uid://sxibtc7xfwr6"]
 
 [ext_resource type="Texture2D" uid="uid://bc62msb7qt67e" path="res://PointSampler/Spawner/assets/Minotaur_Attack.png" id="1_67dyb"]
 [ext_resource type="Texture2D" uid="uid://cvfhngqgn0ir0" path="res://PointSampler/Spawner/assets/Minotaur_Idle.png" id="1_cydt2"]
@@ -212,6 +212,9 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_67dyb"]
+radius = 50.0
+
 [node name="Enemy" type="Node2D"]
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
@@ -220,3 +223,9 @@ animation = &"attack"
 autoplay = "idle"
 frame = 11
 frame_progress = 1.0
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_67dyb")

@@ -4,7 +4,6 @@ class_name Spawner
 ## Uses a point sampler to set up a spawn area for different types of Characters
 
 
-
 @export var max_spawns: int = 5 ## the total number of spawns this spawner can produce
 @export var spawn_attempts: int = 50  ## the number of times to try to spawn something before resetting.
 @export var spawn_interval: float = 5.0 ## the time between spawns
@@ -25,14 +24,10 @@ var spawn_timer: Timer
 func _ready() -> void:
 	super()
 	spawn_pts = get_points()
-	_setup_timer()
-	_start_timer()
+	if not Engine.is_editor_hint():
+		_setup_timer()
+		_start_timer()
 	pass 
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 
 #region API
@@ -117,7 +112,16 @@ func _dist_to_target(p: Vector2) -> float:
 
 # Use the probe to check the desired point.
 func _is_point_occupied(p: Vector2) -> bool:
-	return false
+	if not probe:
+		return false
+	
+	probe.position = p
+	print("New Probe Position ", probe.position)
+	print("point it should be at: ", p)
+	probe.collision_mask = collision_check_mask
+	probe.target_position = Vector2.ZERO
+	probe.force_shapecast_update()
+	return probe.is_colliding()
 
 
 func _validate_point(p: Vector2) -> bool:

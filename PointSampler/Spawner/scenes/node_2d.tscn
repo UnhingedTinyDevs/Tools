@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://c54atwf1ccdpu" path="res://PointSampler/scripts/poisson_settings.gd" id="3_s7nqs"]
 [ext_resource type="Texture2D" uid="uid://cvfhngqgn0ir0" path="res://PointSampler/Spawner/assets/Minotaur_Idle.png" id="3_vmiu7"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vmiu7"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s7nqs"]
 size = Vector2(50, 50)
 
 [sub_resource type="PackedScene" id="PackedScene_s7nqs"]
@@ -29,7 +29,7 @@ radius = 500.0
 [sub_resource type="Resource" id="Resource_pd4s1"]
 script = ExtResource("3_s7nqs")
 min_distance = 150.0
-max_dist_mult = 20.0
+max_dist_mult = 25.0
 point_scene = SubResource("PackedScene_s7nqs")
 shape = SubResource("CircleShape2D_3u73q")
 metadata/_custom_type_script = "uid://c54atwf1ccdpu"
@@ -162,11 +162,12 @@ animations = [{
 
 [node name="Spawner" parent="." node_paths=PackedStringArray("target") instance=ExtResource("1_xl3nn")]
 position = Vector2(571, 391)
-max_spawns = 20
+max_spawns = 100
+spawn_interval = 2.0
 spawn_types = Dictionary[String, PackedScene]({
 "manbull": ExtResource("2_s7nqs")
 })
-probe_shape = SubResource("RectangleShape2D_vmiu7")
+probe_shape = SubResource("RectangleShape2D_s7nqs")
 target = NodePath("../CharacterBody2D")
 target_clearence = 200.0
 settings = SubResource("Resource_pd4s1")
@@ -184,3 +185,4 @@ autoplay = "default"
 frame_progress = 0.75561863
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+zoom = Vector2(0.5, 0.5)
