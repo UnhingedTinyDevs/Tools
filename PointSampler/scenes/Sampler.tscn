@@ -13,12 +13,14 @@ script = ExtResource("3_puij2")
 shape = SubResource("CircleShape2D_12fae")
 metadata/_custom_type_script = "uid://c54atwf1ccdpu"
 
-[node name="Sampler" type="Area2D"]
+[node name="Sampler" type="Area2D" node_paths=PackedStringArray("sampler_collision")]
 monitoring = false
 monitorable = false
 script = ExtResource("1_amdu3")
 settings = SubResource("Resource_ppyeb")
 debug = true
+sampler_collision = NodePath("SamplerShape")
+metadata/_edit_group_ = true
 
 [node name="SamplerShape" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true

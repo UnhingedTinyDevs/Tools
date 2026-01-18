@@ -39,13 +39,13 @@ class_name PointSampler
 		settings = v
 		pd.settings = settings
 
-		if settings != null:
+		if settings != null and not settings.changed.is_connected(_on_settings_changed):
 			settings.changed.connect(_on_settings_changed)
 			if is_node_ready():
 				refresh()
 
 @export var debug: bool = false
-@onready var sampler_collision: SamplerShape
+@export var sampler_collision: SamplerShape
 #endregion
 
 #region variables
@@ -106,10 +106,13 @@ func refresh() -> void:
 	if settings:
 		sampler_collision.shape = settings.shape
 	
-	for i in range(pd.points.size()):
-		pd.points[i] = self.global_transform * pd.points[i]
 	draw(pd.points)
+	return
 
+
+func get_points() -> Array[Vector2]:
+	return pd.get_points()
+		
 #endregion -------------------------------------------------------------------------------
 
 func _get_sampler_shape() -> SamplerShape:

@@ -33,6 +33,7 @@ folder_colors={
 "res://ComponentMove/": "red",
 "res://MenuAudio/": "red",
 "res://PointSampler/": "green",
+"res://PointSampler/Spawner/": "yellow",
 "res://SceneManager/": "green",
 "res://StateMachine/": "green"
 }

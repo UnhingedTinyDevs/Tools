@@ -1,0 +1,186 @@
+[gd_scene load_steps=29 format=3 uid="uid://df0j8d80iyt4y"]
+
+[ext_resource type="PackedScene" uid="uid://b0m3j4mw1vcbq" path="res://PointSampler/Spawner/scenes/spawner.tscn" id="1_xl3nn"]
+[ext_resource type="PackedScene" uid="uid://sxibtc7xfwr6" path="res://PointSampler/Spawner/scenes/enemy.tscn" id="2_s7nqs"]
+[ext_resource type="Script" uid="uid://dmb27sv51icmv" path="res://PointSampler/Spawner/scripts/character_body_2d.gd" id="2_vm0mo"]
+[ext_resource type="Texture2D" uid="uid://bhbexymskfkui" path="res://PointSampler/assets/RedFlag.png" id="2_vmiu7"]
+[ext_resource type="Script" uid="uid://c54atwf1ccdpu" path="res://PointSampler/scripts/poisson_settings.gd" id="3_s7nqs"]
+[ext_resource type="Texture2D" uid="uid://cvfhngqgn0ir0" path="res://PointSampler/Spawner/assets/Minotaur_Idle.png" id="3_vmiu7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vmiu7"]
+size = Vector2(50, 50)
+
+[sub_resource type="PackedScene" id="PackedScene_s7nqs"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"names": PackedStringArray("Point", "Node2D", "Sprite2D", "Sprite2D", "position", "scale", "texture"),
+"node_count": 2,
+"node_paths": [NodePath(".")],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 0, 0, 1073741824, 0, 3, 2, -1, 3, 4, 0, 5, 1, 6, 2, 0),
+"variants": [Vector2(50, -92), Vector2(0.25, 0.25), ExtResource("2_vmiu7")],
+"version": 3
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3u73q"]
+radius = 500.0
+
+[sub_resource type="Resource" id="Resource_pd4s1"]
+script = ExtResource("3_s7nqs")
+min_distance = 150.0
+max_dist_mult = 20.0
+point_scene = SubResource("PackedScene_s7nqs")
+shape = SubResource("CircleShape2D_3u73q")
+metadata/_custom_type_script = "uid://c54atwf1ccdpu"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3u73q"]
+radius = 37.0
+height = 86.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pd4s1"]
+atlas = ExtResource("3_vmiu7")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfgld"]
+atlas = ExtResource("3_vmiu7")
+region = Rect2(320, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vi0y"]
+atlas = ExtResource("3_vmiu7")
+region = Rect2(640, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2j8t"]
+atlas = ExtResource("3_vmiu7")
+region = Rect2(960, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ph3k"]
+atlas = ExtResource("3_vmiu7")
+region = Rect2(1280, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ou2ae"]
+atlas = ExtResource("3_vmiu7")
+region = Rect2(1600, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lkjq3"]
+atlas = ExtResource("3_vmiu7")
+region = Rect2(1920, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bv0qj"]
+atlas = ExtResource("3_vmiu7")
+region = Rect2(2240, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q5wr7"]
+atlas = ExtResource("3_vmiu7")
+region = Rect2(2560, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mj33a"]
+atlas = ExtResource("3_vmiu7")
+region = Rect2(2880, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_68cdq"]
+atlas = ExtResource("3_vmiu7")
+region = Rect2(3200, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ax1d7"]
+atlas = ExtResource("3_vmiu7")
+region = Rect2(3520, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdpnt"]
+atlas = ExtResource("3_vmiu7")
+region = Rect2(3840, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3lik"]
+atlas = ExtResource("3_vmiu7")
+region = Rect2(4160, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8ejg"]
+atlas = ExtResource("3_vmiu7")
+region = Rect2(4480, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wdtno"]
+atlas = ExtResource("3_vmiu7")
+region = Rect2(4800, 0, 320, 320)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ewj21"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pd4s1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfgld")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7vi0y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k2j8t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ph3k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ou2ae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lkjq3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bv0qj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q5wr7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mj33a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_68cdq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ax1d7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gdpnt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3lik")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8ejg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wdtno")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Spawner" parent="." node_paths=PackedStringArray("target") instance=ExtResource("1_xl3nn")]
+position = Vector2(571, 391)
+max_spawns = 20
+spawn_types = Dictionary[String, PackedScene]({
+"manbull": ExtResource("2_s7nqs")
+})
+probe_shape = SubResource("RectangleShape2D_vmiu7")
+target = NodePath("../CharacterBody2D")
+target_clearence = 200.0
+settings = SubResource("Resource_pd4s1")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(698, 363)
+script = ExtResource("2_vm0mo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CapsuleShape2D_3u73q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_ewj21")
+autoplay = "default"
+frame_progress = 0.75561863
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
