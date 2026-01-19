@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bc62msb7qt67e"
-path="res://.godot/imported/Minotaur_Attack.png-bc33f5ab22ad269d20c03843a037019f.ctex"
+uid="uid://bj38pwf5temex"
+path="res://.godot/imported/timersettings.png-f3ba32ace701822ae78648b6cce5bf00.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PointSampler/Spawner/assets/Minotaur_Attack.png"
-dest_files=["res://.godot/imported/Minotaur_Attack.png-bc33f5ab22ad269d20c03843a037019f.ctex"]
+source_file="res://PointSampler/Spawner/assets/timersettings.png"
+dest_files=["res://.godot/imported/timersettings.png-f3ba32ace701822ae78648b6cce5bf00.ctex"]
 
 [params]
 

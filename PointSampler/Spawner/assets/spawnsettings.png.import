@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hm6lihh5upto"
-path="res://.godot/imported/Minotaur_Guard.png-b804514f353b510db2266f794e45df9e.ctex"
+uid="uid://dyjto0xmrj4fa"
+path="res://.godot/imported/spawnsettings.png-bbfff655910dd11d01bf770de963d1a2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PointSampler/Spawner/assets/Minotaur_Guard.png"
-dest_files=["res://.godot/imported/Minotaur_Guard.png-b804514f353b510db2266f794e45df9e.ctex"]
+source_file="res://PointSampler/Spawner/assets/spawnsettings.png"
+dest_files=["res://.godot/imported/spawnsettings.png-bbfff655910dd11d01bf770de963d1a2.ctex"]
 
 [params]
 
