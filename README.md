@@ -32,14 +32,20 @@ Uses the Poisson Disk Distribution to sample points in a given area. Allows for 
 
 <img src="/PointSampler/assets/images/point_sampler_circle.png" alt="drawing" width="600"/>
 
+#### Spawner
+extends the PointSampler to allow it to spawn different scenes under the user defined conditions, such as collision avoidance, and navigation enforcement
+
+
 ### Background Panel
 A simple panel node that takes a list of images and a transitions and plays a slide show. Or it can display a solid image or color. Used as a base of a lot of other menus as it acts
 as a more advanced texture rect which fits most projects needs better. You can see it being used in the SceneManager.
+
 
 ### SceneManager
 An autoload and fully customizable loadingscreen, with background slideshow and gameplay tips, to entertain the player while content is loaded on threads in the background perfect for speedy loadtimes to get the player back in the action faster.
 
 <img src="/SceneManager/assets/images/theme_dropdown.png" alt="drawing" width="600"/>
+
 
 ### State Machine
 A simple node based state machine implementation in which a state machine has many child (state) nodes and manages which one runs.
