@@ -6,6 +6,8 @@ The point sampler leverages [Birdsons Algorithm](https://www.cs.ubc.ca/~rbridson
 - [PointSampler](#pointsampler)
 - [Examples](#examples)
 
+## Nodes that extend PointSampler
+- [Spawner](./Spawner/README.md): used to spawn in different [PackedScenes](https://docs.godotengine.org/en/stable/classes/class_packedscene.html)
 
 ## PoissonSettings
 These are the variables that will determine how the [PoissonDisc](#poissondisc) class will generate the points. You can use the [PointSampler](#pointsampler) to view the changes live in the editor.
