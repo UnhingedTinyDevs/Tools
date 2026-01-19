@@ -1,11 +1,7 @@
-extends Node
+extends RefCounted
+class_name NavigationProbe
+## Checks to see if a point over laps with any of the desired navigation layers
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func check_point2D(point: Vector2, navmap: RID) -> bool:
+	var cp: Vector2 = NavigationServer2D.map_get_closest_point(navmap, point)
+	return cp.is_equal_approx(point)

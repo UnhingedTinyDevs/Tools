@@ -1,8 +1,6 @@
 extends RefCounted
 class_name PoissonDisc
-## {{Short Description}}
-##
-## {{Longer Description}}
+
 
 #region Variables ------------------------------------------------------------------------
 ## All script variables that are not local to a method should be placed here.
@@ -77,6 +75,7 @@ func run() -> void:
 
 
 func get_points() -> Array[Vector2]:
+	print("getting points")
 	return points
 
 #endregion -------------------------------------------------------------------------------
@@ -119,7 +118,7 @@ func _generate_points() -> void:
 func _add_point(p: Vector2):
 	points.append(p)
 	_active_list.append(p)
-	var grid_pos: Vector2 = _point_to_grid(p)
+	var grid_pos: Vector2i = _point_to_grid(p)
 	_grid[grid_pos.x][grid_pos.y] = p
 
 

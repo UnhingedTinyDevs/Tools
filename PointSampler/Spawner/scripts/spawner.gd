@@ -12,7 +12,6 @@ class_name Spawner
 @export_group("Spawn Settings")
 @export var max_spawns: int = 5 ## the total number of spawns this spawner can produce
 @export var spawn_attempts: int = 50  ## the number of times to try to spawn something before resetting.
-@export var spawn_interval: float = 5.0 ## the time between spawns
 @export var spawn_types: Array[SpawnItem] = [] ## An array of the [SpawnItem]'s
 @export var default_spawn: SpawnItem ## What items should the spawner fall back on, or set this if the spawner spawns only one thing
 
@@ -31,6 +30,7 @@ class_name Spawner
 @export_group("Timer Settings")
 @export var spawn_on_timer: bool = true: set = set_spawn_on_timer ## Should the spawner run on a timer
 @export var spawn_rand_on_timeout: bool = true ## Spawn a random object from [member Spawner.spawn_types] when the timer times out
+@export var spawn_interval: float = 5.0 ## the time between spawns
 
 #endregion Exports -----------------------------------------------------------------------
 
@@ -40,11 +40,12 @@ var spawn_pts: Array[Vector2] = [] ## List of points aviable to choose from, mad
 var spawns: Dictionary[StringName, SpawnItem] = {} ##  Stores the Items defined in [member Spawner.spawn_types] keyed by its name.
 var spawned_objs: Dictionary[Node2D, bool] ## What objects have been spawned and is its refrence valid
 var spawn_timer: Timer ## The timer that controls when to spawn something.
-var collision_enforcer: CollisionProbe
+var collision_enforcer: CollisionProbe ## given a point and [ShapeCast2D] check if there are collisions.
+var navigation_enforcer: NavigationProbe
 #endregion Variables ---------------------------------------------------------------------
 
 #region onReady --------------------------------------------------------------------------
-@onready var probe: Probe = %Probe ## The probe that checks for overlapping collision shapes before spawning.
+@onready var probe := %Probe ## The probe that checks for overlapping collision shapes before spawning.
 
 #endregion onReady -----------------------------------------------------------------------
 
@@ -58,7 +59,8 @@ func _ready() -> void:
 	elif not Engine.is_editor_hint():
 		assert(target)
 		assert(probe_shape)
-		collision_enforcer = CollisionProbe.new(probe, collision_checks)
+		collision_enforcer = CollisionProbe.new()
+		navigation_enforcer = NavigationProbe.new()
 		_setup_timer()
 		_start_timer()
 		_init_spawns()
@@ -69,7 +71,7 @@ func _ready() -> void:
 
 
 
-#region API
+#region API  -----------------------------------------------------------------------------
 func spawn(type: String) -> void:
 	if Engine.is_editor_hint(): # Never spawn in the editor
 		return
@@ -121,8 +123,6 @@ func set_probe_shape(v: Shape2D) -> void:
 	if probe and probe.is_inside_tree():
 		probe.shape = probe_shape
 		pass
-	if collision_enforcer and probe:
-		collision_enforcer.probe = probe
 	return
 
 
@@ -132,9 +132,6 @@ func set_probe_collision(v: int) -> void:
 	collision_checks = v
 	if probe.is_inside_tree():
 		probe.collision_mask = collision_checks
-		pass
-	if collision_enforcer:
-		collision_enforcer.check_mask =   collision_checks
 		pass
 	return
 
@@ -157,24 +154,21 @@ func _dist_to_target(p: Vector2) -> float:
 	return target.global_position.distance_to(to_global(p))
 
 
-# Use the probe to check the desired point.
-func _is_point_occupied(p: Vector2) -> bool:
-	if not probe:
-		return false
-	
-	probe.position = p
-	print("New Probe Position ", probe.position)
-	print("point it should be at: ", p)
-	probe.collision_mask = collision_checks
-	probe.target_position = Vector2.ZERO
-	probe.force_shapecast_update()
-	return probe.is_colliding()
-
-
 func _validate_point(p: Vector2) -> bool:
-	if _dist_to_target(p) >= target_clearence and not _is_point_occupied(p):
-		return true
-	return false
+	if check_collisions and not check_navigation:
+		return _dist_to_target(p) >= target_clearence and not collision_enforcer.check_point2D(p, probe)
+	elif not check_collisions and check_navigation:
+		var world: RID = get_world_2d().navigation_map
+		return _dist_to_target(p) >= target_clearence and not navigation_enforcer.check_point2D(p, world)
+	elif check_collisions and check_navigation:
+		var world: RID = get_world_2d().navigation_map
+		return (
+			_dist_to_target(p) >= target_clearence and 
+			navigation_enforcer.check_point2D(p, world) and not
+			collision_enforcer.check_point2D(p, probe)
+			)
+	else:
+		return _dist_to_target(p) >= target_clearence
 
 
 func _add_to_spawned(s: Node2D) -> void:
@@ -243,6 +237,7 @@ func _on_timeout() -> void:
 		spawn((spawn_types.pick_random() as SpawnItem).sname)
 		_start_timer()
 		return
-
+	spawn(default_spawn.sname)
+	_start_timer()
 
 #endregion Timer Methods -----------------------------------------------------------------

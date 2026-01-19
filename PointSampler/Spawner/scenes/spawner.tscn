@@ -1,10 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://b0m3j4mw1vcbq"]
+[gd_scene load_steps=11 format=3 uid="uid://b0m3j4mw1vcbq"]
 
 [ext_resource type="Script" uid="uid://b31p0wiiyr78r" path="res://PointSampler/Spawner/scripts/spawner.gd" id="2_mjlsq"]
+[ext_resource type="Script" uid="uid://c5jbr2gl87xf4" path="res://PointSampler/Spawner/scripts/spawn_item.gd" id="2_yjq78"]
 [ext_resource type="Script" uid="uid://boa3l2uui6w2f" path="res://PointSampler/Spawner/scripts/probe.gd" id="3_mm4a4"]
 [ext_resource type="PackedScene" uid="uid://bh1llhygf5hh8" path="res://PointSampler/scenes/point.tscn" id="3_pa0w6"]
 [ext_resource type="Script" uid="uid://cmgbkaqtcb50v" path="res://PointSampler/scripts/sampler_collision.gd" id="4_pa0w6"]
 [ext_resource type="Script" uid="uid://c54atwf1ccdpu" path="res://PointSampler/scripts/poisson_settings.gd" id="4_yjq78"]
+
+[sub_resource type="Resource" id="Resource_yeub7"]
+script = ExtResource("2_yjq78")
+metadata/_custom_type_script = "uid://c5jbr2gl87xf4"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yjq78"]
 radius = 500.0
@@ -22,9 +27,8 @@ size = Vector2(50, 50)
 monitoring = false
 monitorable = false
 script = ExtResource("2_mjlsq")
-collision_checks = null
+spawn_types = Array[ExtResource("2_yjq78")]([SubResource("Resource_yeub7")])
 target_clearence = 20.0
-nav_checks = null
 settings = SubResource("Resource_7b5of")
 debug = true
 sampler_collision = NodePath("SamplerShape")
