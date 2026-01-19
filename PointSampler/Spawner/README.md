@@ -1,12 +1,13 @@
 # Spawner
-The spawner makes use of the [PointSampler](../README.md) to generate a collection of points that it can scan and spawn different [SpawnItem]() provided. Using the spawner 
+The spawner makes use of the [PointSampler](../README.md) to generate a collection of points that it can scan and spawn the different [SpawnItem]() provided. Using the spawner 
 you can configure it to care about the following things when attempting to spawn:
 
 - Collision Layers
 - Naviagation Layers
 - Player Avoidance
 
-The spawner is highly configurable in the editor and if that is not enough you can extend the script but make sure you mark it with `@tool`
+The spawner is highly configurable in the editor and if that is not enough you can extend the script but make sure you mark it with `@tool`so that all the child nodes will be updated in editor for 
+that in editor feedback.
 
 ## Table of contents
 
@@ -96,3 +97,4 @@ minimum distance away from the target.
 ## Refrences
 
 This node makes use of the PointSpawner to generate the spawn points and as such any question about these settings or how this work consult the [book of PointSampler](../README.md) 
+
