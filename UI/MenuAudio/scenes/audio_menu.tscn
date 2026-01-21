@@ -1,11 +1,11 @@
 [gd_scene load_steps=14 format=3 uid="uid://di8k8qxahpbbo"]
 
-[ext_resource type="Script" uid="uid://ctoyqc2xuuo8k" path="res://MenuAudio/scripts/audio_menu.gd" id="1_0lq8y"]
+[ext_resource type="Script" uid="uid://ctoyqc2xuuo8k" path="res://UI/MenuAudio/scripts/audio_menu.gd" id="1_0lq8y"]
 [ext_resource type="Texture2D" uid="uid://c25mksqknivyj" path="res://SceneManager/assets/images/bg/heading_home_by_neytirix_dfljvk0.jpg" id="2_0lq8y"]
 [ext_resource type="Texture2D" uid="uid://bd5cp6qs2au64" path="res://SceneManager/assets/images/bg/guard_it_well_okay__by_neytirix_ddcc1wt.jpg" id="3_7k7v4"]
-[ext_resource type="PackedScene" uid="uid://ds056vh2hy34k" path="res://BackgroundPanel/scenes/background.tscn" id="4_4tmky"]
+[ext_resource type="PackedScene" uid="uid://ds056vh2hy34k" path="res://UI/BackgroundPanel/scenes/background.tscn" id="4_4tmky"]
 [ext_resource type="Texture2D" uid="uid://dj5eoik8li1d7" path="res://SceneManager/assets/images/bg/are_you_lost__by_neytirix_ddx4x55.jpg" id="4_7k7v4"]
-[ext_resource type="Script" uid="uid://cjm0hn8oq2j4n" path="res://MenuAudio/scripts/main_control.gd" id="5_7k7v4"]
+[ext_resource type="Script" uid="uid://cjm0hn8oq2j4n" path="res://UI/MenuAudio/scripts/main_control.gd" id="5_7k7v4"]
 
 [sub_resource type="Theme" id="Theme_4tmky"]
 RichTextLabel/colors/default_color = Color(1, 1, 1, 1)

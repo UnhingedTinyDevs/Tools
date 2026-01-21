@@ -1,14 +1,14 @@
 [gd_scene load_steps=19 format=3 uid="uid://ds056vh2hy34k"]
 
 [ext_resource type="Texture2D" uid="uid://c4xb1014be8f4" path="res://SceneManager/assets/images/bg/guardian_of_the_beetroot_by_neytirix_ddgl0np.jpg" id="1_wnfs1"]
-[ext_resource type="Script" uid="uid://15r1014ffb7p" path="res://BackgroundPanel/scripts/background.gd" id="2_s7ugq"]
+[ext_resource type="Script" uid="uid://15r1014ffb7p" path="res://UI/BackgroundPanel/scripts/background.gd" id="2_s7ugq"]
 [ext_resource type="Texture2D" uid="uid://d1ksqkqsgqj2x" path="res://SceneManager/assets/images/bg/bit_higher__by_neytirix_ddcvgxk.jpg" id="3_fqhi0"]
 [ext_resource type="Texture2D" uid="uid://daylawehsyqq2" path="res://SceneManager/assets/images/bg/farewell_by_neytirix_ddl6d9g.jpg" id="4_o0goi"]
 [ext_resource type="Texture2D" uid="uid://b4nwgyjty0m2t" path="res://SceneManager/assets/images/bg/Wallpaper_PikaOS_Parrot_8K.png" id="5_nv2gf"]
 [ext_resource type="Texture2D" uid="uid://wdulc5s50pwt" path="res://SceneManager/assets/images/bg/the_mooshroom_by_neytirix_deyzsx6.jpg" id="6_4hhjx"]
 [ext_resource type="Texture2D" uid="uid://5sbopx21qu3d" path="res://SceneManager/assets/images/bg/on_duty_by_neytirix_ddff7cy.jpg" id="7_gnyn2"]
-[ext_resource type="Script" uid="uid://ch6lsr0n7wker" path="res://BackgroundPanel/scripts/background_transitions.gd" id="8_o8ini"]
-[ext_resource type="Script" uid="uid://wkspe7pv56ka" path="res://BackgroundPanel/scripts/black_bg.gd" id="10_nv2gf"]
+[ext_resource type="Script" uid="uid://ch6lsr0n7wker" path="res://UI/BackgroundPanel/scripts/background_transitions.gd" id="8_o8ini"]
+[ext_resource type="Script" uid="uid://wkspe7pv56ka" path="res://UI/BackgroundPanel/scripts/black_bg.gd" id="10_nv2gf"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wnfs1"]
 texture = ExtResource("1_wnfs1")

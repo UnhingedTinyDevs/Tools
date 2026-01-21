@@ -26,14 +26,15 @@ window/size/mode=3
 [file_customization]
 
 folder_colors={
-"res://BackgroundPanel/": "green",
-"res://ComponentAnimation/": "red",
-"res://ComponentAttack/": "red",
-"res://ComponentAudio/": "red",
-"res://ComponentMove/": "red",
-"res://MenuAudio/": "red",
+"res://Components/ComponentAgro/": "yellow",
+"res://Components/ComponentAnimation/": "red",
+"res://Components/ComponentAttack/": "red",
+"res://Components/ComponentAudio/": "red",
+"res://Components/ComponentMove/": "red",
 "res://PointSampler/": "green",
-"res://PointSampler/Spawner/": "yellow",
+"res://PointSampler/Spawner/": "green",
 "res://SceneManager/": "green",
-"res://StateMachine/": "green"
+"res://StateMachine/": "green",
+"res://UI/BackgroundPanel/": "green",
+"res://UI/MenuAudio/": "red"
 }

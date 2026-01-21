@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://gbr48rh36whu" path="res://SceneManager/scripts/loading_screen.gd" id="1_c0xx0"]
 [ext_resource type="Script" uid="uid://d2s0385yei0yk" path="res://SceneManager/scripts/transitions.gd" id="2_mxs6b"]
-[ext_resource type="Script" uid="uid://15r1014ffb7p" path="res://BackgroundPanel/scripts/background.gd" id="3_0erit"]
+[ext_resource type="Script" uid="uid://15r1014ffb7p" path="res://UI/BackgroundPanel/scripts/background.gd" id="3_0erit"]
 [ext_resource type="PackedScene" uid="uid://vhvnvkb3qn17" path="res://SceneManager/scenes/GameplayTips.tscn" id="3_ddvtp"]
 [ext_resource type="Texture2D" uid="uid://b4nwgyjty0m2t" path="res://SceneManager/assets/images/bg/Wallpaper_PikaOS_Parrot_8K.png" id="4_hxdmt"]
 [ext_resource type="Texture2D" uid="uid://bw5mtl1khpkw6" path="res://SceneManager/assets/images/bg/why_s_it_not_going__by_neytirix_dds3mtw.jpg" id="4_t11yh"]
