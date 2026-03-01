@@ -61,7 +61,8 @@ func set_shape(v: Shape2D) -> void:
 		shape.changed.disconnect(_shape_properties_changed)
 	shape = v
 	emit_changed()
-	shape.changed.connect(_shape_properties_changed)
+	if shape:
+		shape.changed.connect(_shape_properties_changed)
 
 
 #endregion

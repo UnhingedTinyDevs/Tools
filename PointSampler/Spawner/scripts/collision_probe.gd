@@ -9,7 +9,7 @@ class_name CollisionProbe
 ## of bodies is true check for body collisions
 func check_point2D(point: Vector2, probe: ShapeCast2D, areas: bool = true, bodies: bool = true) -> bool:
 	probe.collide_with_areas = areas
-	probe.collied_with_bodies = bodies
+	probe.collide_with_bodies = bodies
 	probe.position = point
 	probe.target_position = Vector2.ZERO
 	probe.force_shapecast_update()

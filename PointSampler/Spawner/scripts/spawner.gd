@@ -52,26 +52,25 @@ var navigation_enforcer: NavigationProbe
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	# Run only in the editor
+	super()
 	if Engine.is_editor_hint():
-		pass
-	# Only run during game play
-	elif not Engine.is_editor_hint():
-		assert(target)
-		assert(probe_shape)
-		collision_enforcer = CollisionProbe.new()
-		navigation_enforcer = NavigationProbe.new()
-		_setup_timer()
-		_start_timer()
-		_init_spawns()
-	# Run in editor and game
-	else:
-		super()
-		spawn_pts = get_points()
+		return
+	assert(target)
+	assert(probe_shape)
+	collision_enforcer = CollisionProbe.new()
+	navigation_enforcer = NavigationProbe.new()
+	_setup_timer()
+	_start_timer()
+	_init_spawns()
 
 
 
 #region API  -----------------------------------------------------------------------------
+func refresh() -> void:
+	super()
+	spawn_pts = get_points()
+
+
 func spawn(type: String) -> void:
 	if Engine.is_editor_hint(): # Never spawn in the editor
 		return
@@ -98,7 +97,7 @@ func spawn(type: String) -> void:
 		print("No valid point found in %s attempts"%spawn_attempts)
 		return
 			
-	var scene: Node2D = (spawns.get(type) as PackedScene).instantiate()
+	var scene: Node2D = (spawns.get(type) as SpawnItem).scene.instantiate()
 	
 	scene.position = p
 	add_child(scene)
@@ -130,7 +129,7 @@ func set_probe_shape(v: Shape2D) -> void:
 func set_probe_collision(v: int) -> void:
 	if v == collision_checks: return
 	collision_checks = v
-	if probe.is_inside_tree():
+	if probe and probe.is_inside_tree():
 		probe.collision_mask = collision_checks
 		pass
 	return
@@ -159,12 +158,12 @@ func _validate_point(p: Vector2) -> bool:
 		return _dist_to_target(p) >= target_clearence and not collision_enforcer.check_point2D(p, probe)
 	elif not check_collisions and check_navigation:
 		var world: RID = get_world_2d().navigation_map
-		return _dist_to_target(p) >= target_clearence and not navigation_enforcer.check_point2D(p, world)
+		return _dist_to_target(p) >= target_clearence and navigation_enforcer.check_point2D(p, world, nav_checks)
 	elif check_collisions and check_navigation:
 		var world: RID = get_world_2d().navigation_map
 		return (
-			_dist_to_target(p) >= target_clearence and 
-			navigation_enforcer.check_point2D(p, world) and not
+			_dist_to_target(p) >= target_clearence and
+			navigation_enforcer.check_point2D(p, world, nav_checks) and not
 			collision_enforcer.check_point2D(p, probe)
 			)
 	else:
@@ -217,7 +216,8 @@ func _setup_timer() -> void:
 	spawn_timer.wait_time = spawn_interval
 	spawn_timer.one_shot = true
 	spawn_timer.autostart = true
-	add_child(spawn_timer)
+	if not spawn_timer.is_inside_tree():
+		add_child(spawn_timer)
 	pass
 
 
@@ -226,7 +226,6 @@ func _start_timer() -> void:
 		return
 
 	if spawn_timer and spawn_timer.is_inside_tree():
-		print("timer Started")
 		spawn_timer.start()
 		pass
 
@@ -234,10 +233,12 @@ func _start_timer() -> void:
 # what do we do when the timer spawns out.
 func _on_timeout() -> void:
 	if spawn_rand_on_timeout:
-		spawn((spawn_types.pick_random() as SpawnItem).sname)
+		if not spawn_types.is_empty():
+			spawn((spawn_types.pick_random() as SpawnItem).sname)
 		_start_timer()
 		return
-	spawn(default_spawn.sname)
+	if default_spawn:
+		spawn(default_spawn.sname)
 	_start_timer()
 
 #endregion Timer Methods -----------------------------------------------------------------

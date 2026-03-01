@@ -30,7 +30,7 @@ class_name PointSampler
 # place all export variables here
 @export var settings: PoissonSettings:
 	set(v):
-		if v == null or settings == null:
+		if v == null:
 			clear()
 		
 		if settings != null and settings.changed.is_connected(_on_settings_changed):
@@ -66,9 +66,7 @@ func _init() -> void:
 
 
 func _enter_tree() -> void:
-	_initalize_settings()
-	if not sampler_collision:
-		sampler_collision = _get_sampler_shape()
+	pass
 
 
 func _ready() -> void:
@@ -103,7 +101,7 @@ func refresh() -> void:
 	clear()
 	pd.run()
 	
-	if settings:
+	if settings and sampler_collision:
 		sampler_collision.shape = settings.shape
 	
 	draw(pd.points)

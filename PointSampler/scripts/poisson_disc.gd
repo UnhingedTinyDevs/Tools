@@ -14,8 +14,7 @@ class_name PoissonDisc
 #endregion
 
 #region  constants
-const PRINT_OFFSET: float = 100.0 ## Distance off to print above ground
-const START_POINT_ATEMPTS: int = 512
+
 #endregion
 
 #region static-variables
@@ -75,12 +74,11 @@ func run() -> void:
 
 
 func get_points() -> Array[Vector2]:
-	print("getting points")
 	return points
 
 #endregion -------------------------------------------------------------------------------
 
-#region Signal Handlers ------------------------------------------------------------------
+#region Private Methods-------------------------------------------------------------------
 
 func _init_grid() -> void:
 	_grid_cell_size = settings.min_distance / sqrt(2)
@@ -96,8 +94,11 @@ func _init_grid() -> void:
 
 
 func _generate_points() -> void:
-	var start = _shape_helper.rand_point_in_shape(settings.shape)
-	_add_point(start)
+	for _i in range(settings.max_attempts):
+		var start: Vector2 = _shape_helper.rand_point_in_shape(settings.shape)
+		if _is_valid_point(start):
+			_add_point(start)
+			break
 	
 	while _active_list.size() > 0:
 		var point: Vector2 = _active_list.pick_random()
