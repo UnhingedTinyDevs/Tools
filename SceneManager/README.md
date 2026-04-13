@@ -1,5 +1,5 @@
 # SceneManager
-SceneManager is a tool that allows you to loadscenes and hode the loading behind a fully customizable loading screen, from custom themes to gameplay tips and background slideshows. All of that and more is included in this Tool. This is actully one of my more favoriate tools I have made or worked on. It makes it increadbly simple to load up a bunch of images and text that can be displayed while the scene manager loads content in the background. All loading is done with threads and progress is displayed on a progress bar. Note: if the load is realy quick the progress bar will not be displayed.
+SceneManager is a tool that allows you to loadscenes and hide the loading behind a fully customizable loading screen, from custom themes to gameplay tips and background slideshows. All of that and more is included in this Tool. This is actully one of my more favoriate tools I have made or worked on. It makes it increadbly simple to load up a bunch of images and text that can be displayed while the scene manager loads content in the background. All loading is done with threads and progress is displayed on a progress bar. Note: if the load is realy quick the progress bar will not be displayed.
 
 ## Table of Contents
 - [Autoloads](#autoload)
